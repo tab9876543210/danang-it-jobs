@@ -116,3 +116,60 @@ Ask this round: find Project Manager postings matching ~10 years experience, Eng
 - Not an employer post — logged for market context: an individual (posting anonymously) seeking a Scrum Master / Junior PM role, 1.5 years experience, **states they hold a PSM Level II certificate**, and can communicate in English with overseas clients. Shows the certification circulates locally even at the junior end, not just as a senior requirement.
 
 **Takeaway:** a PM opening that literally requires 10 years + PMP/PSM-II doesn't show up in this group's recent activity — Đà Nẵng's outsourcing-heavy market posts "Senior PM" around the 5-year mark instead. Worth deciding whether to (a) keep watching this group for a rarer senior post, (b) check a more senior-skewed group/source, or (c) treat "5+ years, Senior PM, up to 70M, English required" as the realistic local ceiling for the site's data.
+
+---
+
+### Round 3 — 2026-09-25 — 8-group sweep (personal job-search check)
+Groups checked this round (search-based method, "Most recent" sort, query terms: "PM"/"Project Manager"/"PMP"/"PSM"):
+- https://www.facebook.com/groups/vieclamcnttdn ("Việc làm CNTT Đà Nẵng" — distinct from the "-New" group covered in Rounds 1–2)
+- https://www.facebook.com/groups/jobITDaNang ("Việc làm IT Đà Nẵng")
+- https://www.facebook.com/groups/vieclamitdanang (resolves to the same/sister "Việc làm IT Đà Nẵng" group)
+- https://www.facebook.com/groups/congdongprojectmanagervietnam ("Cộng đồng Project Manager Việt Nam")
+- https://www.facebook.com/groups/1714939998549259/ ("IT Jobs at Da Nang city")
+- https://www.facebook.com/groups/301934151540945/ ("Việc Làm IT Freelancer, Remote Jobs")
+- https://www.facebook.com/groups/398711525120468/ ("IT JOBS FOR REMOTE/SENIOR/PM/CTO")
+
+**Note on purpose:** this round was run against the same target profile as Round 2 (~10 years PM experience, English communication, PMP/PSM-II) at the requester's ask for their own job search, not as general site market data. Kept in this file for the record, but not source material for the dashboard's aggregate stats section unless a clearly-labeled "closest matches" callout is wanted later.
+
+**Best match found — Jess Jess, group "IT JOBS FOR REMOTE/SENIOR/PM/CTO"**
+- Role: IT Project Manager
+- Detail: "[QUẬN BÌNH THẠNH, HCM] CẦN TÌM IT PROJECT MANAGER (8 NĂM KN, FLUENT ENG) — DỰ ÁN LARGE SCALE." Projects 6 months–2 years. Requirements: minimum 8 years as IT Project Manager in software/IT, good spoken English (direct work with overseas management), **PMP certificate required** + deep Agile/Scrum understanding, IT-related university degree. Contact via the poster directly (no email/phone in the post text — "lh mình để nhận chi tiết JD").
+- Location: Bình Thạnh, HCM (not Đà Nẵng)
+- Date: August 11, 2026 — outside the 2-week window (~6 weeks old at scan time)
+- Notes: closest overall match to the target profile found across all 9 groups checked this session — explicit PMP requirement, 8-year floor (a 10-year candidate clears it), English-only (no Japanese). Main gaps: HCM location, not Đà Nẵng; no PSM-II mention; post is dated, so may no longer be open.
+
+**Other notable finds**
+
+- Role: Senior Manager / Senior Delivery Manager (N2+) — NEGO
+  - Detail: Anh Sơn / FreeC (recruiter), Hybrid-HN. Requires 10 years in software development, 5 of those as Senior Manager/Division Manager, offshore delivery management experience, **Japanese N2+**. Contact: sontran@freec.asia, +84 344 565 640. Same post also lists a second opening: "[DA NANG] BrSE/Tester (N2+)," 3+ years.
+  - Location: Hybrid, Hà Nội (cross-posted into "vieclamitdanang" and "IT Jobs at Da Nang city")
+  - Date: September 3, 2026 — just outside the 2-week window
+  - Notes: closest match on raw years (10), but requires Japanese N2+ rather than English-only, and title is "Senior/Delivery Manager" rather than "Project Manager"
+
+- Role: Project Manager
+  - Detail: Quynh Linh / Kyanon Digital, Đà Nẵng. 3+ years PM experience, Strong English required, "nice to have: Agile/PMP certification, ES/UK market experience." Contact: linh.nguyenthiquynh@kyanon.digital, 0705 440 437.
+  - Location: Đà Nẵng
+  - Date: September 9, 2026 — just outside the 2-week window (by ~2 days)
+  - Notes: Đà Nẵng-based and English-first, but years requirement (3+) is well under the 10-year target; PMP listed only as a plus, not required
+
+- Role: PMO – Project Manager
+  - Detail: Thuy Linh, "[Thủ Đức, HCM Hybrid] PMO-Project Manager | OFFER max 60M | fluent ENG." 5+ years PM experience (tech or non-tech background accepted), large team size, financial-services background preferred.
+  - Location: Thủ Đức, HCM (Hybrid)
+  - Notes: fluent English and a real offer ceiling (60M), but 5-year bar is below target and no certification mentioned; HCM not Đà Nẵng
+
+- Role: Digital Architect
+  - Detail: Tiến Quốc, congdongprojectmanagervietnam, Hà Nội. **8–10 years experience** required, salary "5x triệu" gross + fixed 13th-month bonus.
+  - Location: Hà Nội
+  - Notes: matches the target years range almost exactly, but the title/scope ("Digital Architect") is adjacent to PM rather than a PM role itself — logged for context, not a direct match
+
+- Role: Senior Project Manager (national-scale project)
+  - Detail: Trần Liên / GTEL ICT, congdongprojectmanagervietnam. 3–5 years, no English required, up to 65M, government/national digital-transformation project.
+  - Location: not specified (likely Hà Nội)
+  - Notes: high salary ceiling but no English requirement and years below target — logged for market-rate context only
+
+- Individual self-post (not an employer listing) — market-context only:
+  - OptimationZ candidate, congdongprojectmanagervietnam: 5 years dev experience, **holds PSM I & II plus PMI-ACP**, seeking Junior SM/APM/Technical PM roles. Confirms PSM-II circulates in the Vietnam PM community as a credential candidates actively hold and advertise, even though no *employer* post this round asked for it by name.
+
+- Other postings seen but below target seniority or off-criteria (not detailed further): TechSoft PM (Middle, jobITDaNang, no years/salary given); AvePoint multi-role hiring from 6 months experience (jobITDaNang, 1714939998549259); Pyramid Technical QC_Manager 45–55tr (1714939998549259, not a PM role); Nguyễn Thùy Dung "Development Team Manager (Japanese)" Đà Nẵng $2000–3000 gross, 70% dev/30% mgmt (1714939998549259); Nguyễn Hồng Nhung / Rainscales "Project Manager (IoT)" Remote, 3–4 years, fluent English (398711525120468); Victoria Nguyễn "PMO kiêm Trợ lý Chủ tịch" up to 60M HCM — hybrid PMO + executive-assistant role, not a pure PM post (398711525120468); several PM listings in congdongprojectmanagervietnam under 5 years experience (Diễm Quỳnh, Hiền Thanh/VMO, Mebisoft, HaiAnh Nguyen, Ngọc Hồng/Globaldev, Thanh Bình/BNK, Minh Minh/SETA).
+
+**Takeaway:** across all 9 Facebook groups checked this session, no employer post in the last 2 weeks combines all four target criteria at once (10 years, English, PMP, PSM-II). The closest single match — Jess Jess's HCM posting — hits 3 of 4 (8+ years, English, PMP) but is dated outside the window, is HCM-based rather than Đà Nẵng, and doesn't mention PSM-II. The Anh Sơn posting matches on raw years (10) but needs Japanese, not English. Splitting the criteria and relaxing the location (HCM/Hà Nội, not just Đà Nẵng) and the strict 2-week window surfaces meaningfully more matches than staying narrow.
