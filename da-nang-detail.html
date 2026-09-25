@@ -4,10 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Đà Nẵng IT Hub — Detail</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="Đà Nẵng's IT hub up close — tech parks, sample job listings, cost of living, and who's hiring, from Vietnam's 2025–2026 recruitment data.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Đà Nẵng's IT Hub — City Drill-Down">
+<meta property="og:description" content="Tech parks, sample job listings, cost of living, and who's hiring in Đà Nẵng's IT sector.">
+<meta property="og:url" content="https://danang-it-jobs.vercel.app/da-nang-detail.html">
+<meta property="og:image" content="https://danang-it-jobs.vercel.app/og-image-danang.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Đà Nẵng's IT Hub — City Drill-Down">
+<meta name="twitter:description" content="Tech parks, sample job listings, cost of living, and who's hiring in Đà Nẵng's IT sector.">
+<meta name="twitter:image" content="https://danang-it-jobs.vercel.app/og-image-danang.png">
 <style>
 :root{
   --bg:#0B1220; --panel:#121C2E; --panel2:#0E1626; --line:#233049; --ink:#EAF0FA; --sub:#8CA0C2;
-  --teal:#2FD4C4; --amber:#F2A65A; --violet:#8E8FFA;
+  --teal:#2FD4C4; --amber:#F2A65A; --violet:#8E8FFA; --red:#F2685A;
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme: light){
@@ -22,6 +35,10 @@ header{padding:16px 20px 16px; max-width:920px; margin:0 auto;}
 .eyebrow{color:var(--teal); font-size:13px; margin:0 0 10px;}
 h1{font-size:clamp(26px,6vw,40px); line-height:1.08; margin:0 0 12px; font-weight:700;}
 .lede{color:var(--sub); font-size:15px; line-height:1.6; max-width:60ch; margin:0;}
+.freshness{display:inline-flex; align-items:center; gap:7px; margin-top:14px; font-size:12px; color:var(--sub); background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:6px 12px;}
+.freshness .dot{width:7px; height:7px; border-radius:50%; background:var(--teal); flex-shrink:0;}
+.freshness.stale .dot{background:var(--amber);}
+.freshness.very-stale .dot{background:var(--red);}
 main{max-width:920px; margin:0 auto; padding:8px 20px 60px;}
 section{margin-top:34px;}
 h2{font-size:15px; font-weight:600; margin:0 0 14px;}
@@ -47,12 +64,13 @@ footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub);
 </head>
 <body>
 
-<a class="back" href="https://claude.ai/artifact/4rUjU5Ncs5ES9iHKWJTQbu">← Back to Vietnam overview</a>
+<a class="back" href="index.html">← Back to Vietnam overview</a>
 
 <header>
   <p class="eyebrow">City drill-down</p>
   <h1>Đà Nẵng's IT hub, up close</h1>
   <p class="lede">Small in job count, but the city has spent a decade building physical IT infrastructure — and is now pivoting toward semiconductors and AI, not just outsourcing.</p>
+  <div class="freshness" id="freshness-badge"><span class="dot"></span><span id="freshness-text">Data snapshot: Sep 2026</span></div>
 </header>
 
 <main>
@@ -129,5 +147,20 @@ footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub);
   Sources: Vietnam News / VNS coverage of Đà Nẵng Software Park and Software Park 2 · VnEconomy · Nhadautu.vn · ITviec Đà Nẵng job listings, Sep 2026 · GetWhereNext cost-of-living data. Frozen at build time — ask to refresh.
 </footer>
 
+<script>
+function updateFreshness(){
+  const snapshotDate = new Date('2026-09-01T00:00:00Z');
+  const now = new Date();
+  const days = Math.max(0, Math.floor((now - snapshotDate) / 86400000));
+  const el = document.getElementById('freshness-badge');
+  const txt = document.getElementById('freshness-text');
+  if(!el || !txt) return;
+  txt.textContent = 'Data snapshot: Sep 2026 · ' + days + (days===1 ? ' day old' : ' days old');
+  el.classList.remove('stale','very-stale');
+  if(days > 180){ el.classList.add('very-stale'); }
+  else if(days > 90){ el.classList.add('stale'); }
+}
+updateFreshness();
+</script>
 </body>
 </html>

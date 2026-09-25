@@ -4,10 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vietnam IT Hiring — Đà Nẵng Snapshot</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="IT hiring snapshot for Vietnam and Đà Nẵng — salary by role, open roles by city, cost of living, and a salary calculator, built from 2025–2026 recruitment reports.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vietnam IT Hiring — Đà Nẵng Snapshot">
+<meta property="og:description" content="Salary by role, open IT roles by city, cost of living, and a salary calculator — built from Vietnam's 2025–2026 IT recruitment reports.">
+<meta property="og:url" content="https://danang-it-jobs.vercel.app/">
+<meta property="og:image" content="https://danang-it-jobs.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vietnam IT Hiring — Đà Nẵng Snapshot">
+<meta name="twitter:description" content="Salary by role, open IT roles by city, cost of living, and a salary calculator for Vietnam's IT market.">
+<meta name="twitter:image" content="https://danang-it-jobs.vercel.app/og-image.png">
 <style>
 :root{
   --bg:#0B1220; --panel:#121C2E; --panel2:#0E1626; --line:#233049; --ink:#EAF0FA; --sub:#8CA0C2;
-  --teal:#2FD4C4; --amber:#F2A65A; --violet:#8E8FFA;
+  --teal:#2FD4C4; --amber:#F2A65A; --violet:#8E8FFA; --red:#F2685A;
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 :root[data-theme="light"]{
@@ -35,6 +48,10 @@ h1 span{color:var(--sub); font-weight:500;}
 .tldr{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-top:18px;}
 .tldr div{font-size:13px; color:var(--ink); line-height:1.6; padding:4px 0;}
 .tldr b{color:var(--teal);}
+.freshness{display:inline-flex; align-items:center; gap:7px; margin-top:12px; font-size:12px; color:var(--sub); background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:6px 12px;}
+.freshness .dot{width:7px; height:7px; border-radius:50%; background:var(--teal); flex-shrink:0;}
+.freshness.stale .dot{background:var(--amber);}
+.freshness.very-stale .dot{background:var(--red);}
 main{max-width:920px; margin:0 auto; padding:8px 20px 60px;}
 section{margin-top:34px; scroll-margin-top:56px;}
 h2{font-size:15px; font-weight:600; margin:0 0 14px; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
@@ -64,9 +81,18 @@ input,select{background:var(--panel2); border:1px solid var(--line); color:var(-
 .calc-result{background:var(--panel2); border:1px solid var(--line); border-radius:8px; padding:16px; text-align:center;}
 .calc-result .v{font-size:28px; font-weight:700; color:var(--teal);}
 .calc-result .l{color:var(--sub); font-size:12px; margin-top:4px;}
+.copy-btn{margin-top:12px; width:100%; background:var(--panel2); border:1px solid var(--line); color:var(--ink); border-radius:7px; padding:9px 12px; font-size:12.5px; font-family:inherit; cursor:pointer;}
+.copy-btn:hover{border-color:var(--teal); color:var(--teal);}
 .legend{display:flex; gap:16px; font-size:12px; color:var(--sub); margin-top:10px;}
 .legend span{display:inline-flex; align-items:center; gap:6px;}
 .dot{width:9px; height:9px; border-radius:3px; display:inline-block;}
+.cmp-card{overflow-x:auto;}
+.cmp-table{min-width:560px;}
+.cmp-row{display:grid; grid-template-columns:1.2fr 1fr 1fr 1fr 1.6fr; gap:10px; padding:10px 0; border-bottom:1px solid var(--line); font-size:12.5px; align-items:center;}
+.cmp-row:last-child{border-bottom:none;}
+.cmp-head{color:var(--sub); font-size:11px; text-transform:uppercase; letter-spacing:.03em; font-weight:600;}
+.cmp-city{font-weight:600;}
+.cmp-row.cmp-highlight .cmp-city{color:var(--teal);}
 footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub); font-size:12px; line-height:1.6; border-top:1px solid var(--line); padding-top:20px;}
 @media print{ nav,#theme-btn,#calc-controls{display:none;} }
 </style>
@@ -74,7 +100,7 @@ footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub);
 <body>
 
 <nav><div class="nav-row">
-  <a href="#overview">Overview</a><a href="#cities">Cities</a><a href="#salary">Salary</a>
+  <a href="#overview">Overview</a><a href="#cities">Cities</a><a href="#compare">Compare</a><a href="#salary">Salary</a>
   <a href="#col">Cost of living</a><a href="#skills">Skills</a><a href="#companies">Companies</a><a href="#pm">PM advice</a>
   <button id="theme-btn" onclick="toggleTheme()">🌓 Theme</button>
 </div></nav>
@@ -88,6 +114,7 @@ footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub);
     <div>🔹 <b>Đà Nẵng is thin but real:</b> ~42 open roles vs. HCMC's 1,040 — concentrated in a few outsourcing employers, Japan-facing.</div>
     <div>🔹 <b>Pay ≠ purchasing power:</b> Đà Nẵng salaries trail HCMC, but living costs are ~31% lower — the gap narrows fast.</div>
   </div>
+  <div class="freshness" id="freshness-badge"><span class="dot"></span><span id="freshness-text">Data snapshot: Sep 2026</span></div>
 </header>
 
 <main>
@@ -105,17 +132,46 @@ footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub);
   <div class="card">
     <div class="bar-row"><div class="bar-label">Hồ Chí Minh</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val num">1,040</div></div>
     <div class="bar-row"><div class="bar-label">Hà Nội</div><div class="bar-track"><div class="bar-fill" style="width:43%"></div></div><div class="bar-val num">443</div></div>
-    <a href="https://claude.ai/artifact/UxHiGDkQ5mNu2x2eeV8uBV" style="text-decoration:none; color:inherit;">
+    <a href="da-nang-detail.html" style="text-decoration:none; color:inherit;">
     <div class="bar-row"><div class="bar-label">Đà Nẵng ↗</div><div class="bar-track"><div class="bar-fill" style="width:4%"></div></div><div class="bar-val num">42</div></div>
     </a>
-    <p class="lede" style="margin-top:10px; font-size:12.5px;">HCMC alone carries several times the open IT hiring of Hà Nội and Đà Nẵng combined. Đà Nẵng roles route mostly through a handful of outsourcing employers (FPT Software, AvePoint) rather than a broad employer base. <a href="https://claude.ai/artifact/UxHiGDkQ5mNu2x2eeV8uBV" style="color:var(--teal);">Open Đà Nẵng detail page →</a></p>
+    <p class="lede" style="margin-top:10px; font-size:12.5px;">HCMC alone carries several times the open IT hiring of Hà Nội and Đà Nẵng combined. Đà Nẵng roles route mostly through a handful of outsourcing employers (FPT Software, AvePoint) rather than a broad employer base. <a href="da-nang-detail.html" style="color:var(--teal);">Open Đà Nẵng detail page →</a></p>
+  </div>
+</section>
+
+<section id="compare">
+  <h2>City comparison at a glance <span class="tag">same metrics as above, side by side</span></h2>
+  <div class="card cmp-card">
+    <div class="cmp-table">
+      <div class="cmp-row cmp-head">
+        <div class="cmp-city">City</div><div>Open IT roles</div><div>Monthly budget</div><div>1-bed rent</div><div>Employer base</div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-city">Hồ Chí Minh</div><div class="num">1,040</div><div class="num">$650</div><div class="num">~$500</div><div>Broad, diverse</div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-city">Hà Nội</div><div class="num">443</div><div class="num">$750</div><div class="num">~$500</div><div>Broad, diverse</div>
+      </div>
+      <div class="cmp-row cmp-highlight">
+        <div class="cmp-city">Đà Nẵng</div><div class="num">42</div><div class="num">$450</div><div class="num">~$350</div><div>Concentrated, Japan-facing outsourcing</div>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:14px; font-size:12.5px;">Fewer open roles in Đà Nẵng, but living costs run 31–40% lower than the other two hubs — see Cost of living below for the full breakdown.</p>
   </div>
 </section>
 
 <section id="salary">
   <h2>Salary by role <span class="tag">median VND/mo · click a role to focus it</span></h2>
   <div class="card">
-    <input id="filter" placeholder="Filter roles… e.g. developer, lead, analyst" oninput="renderBars()" style="margin-bottom:14px;">
+    <div class="calc-row">
+      <input id="filter" placeholder="Filter roles… e.g. developer, lead, analyst" oninput="renderBars()">
+      <select id="sort-mode" onchange="renderBars()">
+        <option value="default">Sort: Default order</option>
+        <option value="salary-desc">Sort: Highest paid first</option>
+        <option value="gap-desc">Sort: Biggest entry→senior jump</option>
+        <option value="az">Sort: A–Z</option>
+      </select>
+    </div>
     <div id="bars"></div>
     <div class="legend"><span><i class="dot" style="background:var(--teal)"></i>Senior (8+ yrs, or highest available)</span><span><i class="dot" style="background:var(--violet); opacity:.55"></i>Entry level</span></div>
   </div>
@@ -130,6 +186,7 @@ footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub);
       </select>
     </div>
     <div class="calc-result"><div class="v num" id="calc-out">—</div><div class="l">estimated median monthly salary, million VND</div></div>
+    <button class="copy-btn" id="copy-link-btn" onclick="copyCalcLink()">🔗 Copy link to this result</button>
   </div>
 </section>
 
@@ -214,14 +271,35 @@ const roles = [
 const maxVal = Math.max(...roles.map(r=>r[5]||r[4]||r[1]));
 let selected = null;
 
+function seniorOf(r){ return r[5] || r[4] || r[1]; }
+function juniorOf(r){ return r[2] || r[3] || null; }
+
+function sortedRoles(){
+  const mode = document.getElementById('sort-mode').value;
+  const list = roles.slice();
+  if(mode==='salary-desc'){
+    list.sort((a,b)=> seniorOf(b) - seniorOf(a));
+  } else if(mode==='gap-desc'){
+    list.sort((a,b)=>{
+      const ja = juniorOf(a), jb = juniorOf(b);
+      const gapA = ja!=null ? seniorOf(a)-ja : -1;
+      const gapB = jb!=null ? seniorOf(b)-jb : -1;
+      return gapB - gapA;
+    });
+  } else if(mode==='az'){
+    list.sort((a,b)=> a[0].localeCompare(b[0]));
+  }
+  return list;
+}
+
 function renderBars(){
   const q = document.getElementById('filter').value.toLowerCase();
   const wrap = document.getElementById('bars');
   wrap.innerHTML = '';
-  roles.forEach(r=>{
-    const [name,total,e0,e1,e2,e5] = r;
-    const senior = e5 || e2 || total;
-    const jr = e0 || e1 || null;
+  sortedRoles().forEach(r=>{
+    const name = r[0];
+    const senior = seniorOf(r);
+    const jr = juniorOf(r);
     const match = name.toLowerCase().includes(q);
     const row = document.createElement('div');
     row.className = 'bar-row' + (q && !match ? ' dim' : '') + (selected===name ? ' sel' : '');
@@ -236,7 +314,11 @@ function renderBars(){
 function initCalc(){
   const sel = document.getElementById('calc-role');
   roles.forEach(r=>{ const o=document.createElement('option'); o.value=r[0]; o.textContent=r[0]; sel.appendChild(o); });
+  const hadParams = applyCalcFromURL();
   calc();
+  if(hadParams){
+    setTimeout(()=>{ const s = document.getElementById('salary'); if(s) s.scrollIntoView({behavior:'smooth', block:'start'}); }, 300);
+  }
 }
 function calc(){
   const name = document.getElementById('calc-role').value;
@@ -244,7 +326,43 @@ function calc(){
   const r = roles.find(x=>x[0]===name);
   const v = r ? (r[idx] ?? r[1]) : null;
   document.getElementById('calc-out').textContent = v ? v + ' M' : 'no data';
+  updateCalcURL();
 }
+function updateCalcURL(){
+  const name = document.getElementById('calc-role').value;
+  const exp = document.getElementById('calc-exp').value;
+  const hash = 'calc-role=' + encodeURIComponent(name) + '&calc-exp=' + exp;
+  history.replaceState(null, '', '#' + hash);
+}
+function applyCalcFromURL(){
+  const h = window.location.hash.replace(/^#/, '');
+  if(!h.startsWith('calc-role=')) return false;
+  const params = new URLSearchParams(h);
+  const role = params.get('calc-role');
+  const exp = params.get('calc-exp');
+  let applied = false;
+  if(role && roles.some(r=>r[0]===role)){
+    document.getElementById('calc-role').value = role;
+    applied = true;
+  }
+  if(exp!=null && ['0','1','2','3','4'].includes(exp)){
+    document.getElementById('calc-exp').value = exp;
+    applied = true;
+  }
+  return applied;
+}
+function copyCalcLink(){
+  const btn = document.getElementById('copy-link-btn');
+  updateCalcURL();
+  const url = window.location.href;
+  const done = ()=>{ const old = btn.textContent; btn.textContent = '✓ Link copied'; setTimeout(()=>{ btn.textContent = old; }, 1800); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(done).catch(()=>{ prompt('Copy this link:', url); });
+  } else {
+    prompt('Copy this link:', url);
+  }
+}
+
 function toggleTheme(){
   const html = document.documentElement;
   const cur = html.getAttribute('data-theme');
@@ -257,8 +375,22 @@ try{
   if(saved) document.documentElement.setAttribute('data-theme', saved);
 }catch(e){}
 
+function updateFreshness(){
+  const snapshotDate = new Date('2026-09-01T00:00:00Z');
+  const now = new Date();
+  const days = Math.max(0, Math.floor((now - snapshotDate) / 86400000));
+  const el = document.getElementById('freshness-badge');
+  const txt = document.getElementById('freshness-text');
+  if(!el || !txt) return;
+  txt.textContent = 'Data snapshot: Sep 2026 · ' + days + (days===1 ? ' day old' : ' days old');
+  el.classList.remove('stale','very-stale');
+  if(days > 180){ el.classList.add('very-stale'); }
+  else if(days > 90){ el.classList.add('stale'); }
+}
+
 renderBars();
 initCalc();
+updateFreshness();
 </script>
 </body>
 </html>
