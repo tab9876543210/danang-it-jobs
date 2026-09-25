@@ -93,6 +93,30 @@ input,select{background:var(--panel2); border:1px solid var(--line); color:var(-
 .cmp-head{color:var(--sub); font-size:11px; text-transform:uppercase; letter-spacing:.03em; font-weight:600;}
 .cmp-city{font-weight:600;}
 .cmp-row.cmp-highlight .cmp-city{color:var(--teal);}
+.lead-filters{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;}
+@media (max-width:640px){.lead-filters{grid-template-columns:1fr 1fr;}}
+.lead-card{background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-bottom:12px; transition:border-color .3s;}
+.lead-card:last-child{margin-bottom:0;}
+.lead-card.pulse{border-color:var(--teal);}
+.lead-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap;}
+.lead-role{font-size:14.5px; font-weight:600;}
+.lead-company{font-size:12.5px; color:var(--sub); margin-top:2px;}
+.lead-badges{display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;}
+.lead-tag{font-size:11px; padding:3px 9px; border-radius:999px; border:1px solid var(--line); color:var(--sub); white-space:nowrap;}
+.lead-tag.direct{color:var(--teal); border-color:var(--teal);}
+.lead-tag.agency{color:var(--amber); border-color:var(--amber);}
+.lead-tag.recruiter{color:var(--violet); border-color:var(--violet);}
+.lead-age{font-size:11px; white-space:nowrap; display:inline-flex; align-items:center; gap:5px; color:var(--sub);}
+.lead-age .dot{width:6px; height:6px; border-radius:50%; background:var(--teal); flex-shrink:0;}
+.lead-age.stale .dot{background:var(--amber);}
+.lead-age.very-stale .dot{background:var(--red);}
+.lead-meta{display:flex; flex-wrap:wrap; gap:14px; margin-top:10px; font-size:12.5px; color:var(--ink);}
+.lead-meta b{color:var(--sub); font-weight:500; margin-right:4px;}
+.lead-actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
+.lead-btn{background:var(--panel); border:1px solid var(--line); color:var(--ink); border-radius:7px; padding:7px 12px; font-size:12px; font-family:inherit; cursor:pointer; text-decoration:none; display:inline-block;}
+.lead-btn:hover{border-color:var(--teal); color:var(--teal);}
+.lead-empty{color:var(--sub); font-size:13px; padding:16px 0; text-align:center;}
+.lead-sync{color:var(--sub); font-size:11.5px; margin-top:14px; text-align:right;}
 footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub); font-size:12px; line-height:1.6; border-top:1px solid var(--line); padding-top:20px;}
 @media print{ nav,#theme-btn,#calc-controls{display:none;} }
 </style>
@@ -100,7 +124,7 @@ footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub);
 <body>
 
 <nav><div class="nav-row">
-  <a href="#overview">Overview</a><a href="#cities">Cities</a><a href="#compare">Compare</a><a href="#salary">Salary</a>
+  <a href="#overview">Overview</a><a href="#cities">Cities</a><a href="#compare">Compare</a><a href="#leads">Job Leads</a><a href="#salary">Salary</a>
   <a href="#col">Cost of living</a><a href="#skills">Skills</a><a href="#companies">Companies</a><a href="#pm">PM advice</a>
   <button id="theme-btn" onclick="toggleTheme()">🌓 Theme</button>
 </div></nav>
@@ -158,6 +182,37 @@ footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub);
     </div>
     <p class="lede" style="margin-top:14px; font-size:12.5px;">Fewer open roles in Đà Nẵng, but living costs run 31–40% lower than the other two hubs — see Cost of living below for the full breakdown.</p>
   </div>
+</section>
+
+<section id="leads">
+  <h2>Job leads — Project Manager <span class="tag">community-sourced, Facebook hiring groups · unverified</span></h2>
+  <p class="lede" style="font-size:12.5px; margin-bottom:14px;">Gathered by hand from public Vietnamese IT-hiring Facebook groups — not verified against the ITviec/TopCV data used elsewhere on this page, so treat these as leads worth checking, not confirmed openings. This list is refreshed manually, not a live feed; every card shows its original posting date so you can judge freshness yourself. Currently scoped to Project Manager roles.</p>
+  <div class="card">
+    <input id="lead-search" placeholder="Search role or company…" oninput="renderLeads()" style="margin-bottom:10px;">
+    <div class="lead-filters">
+      <select id="lead-city" onchange="renderLeads()">
+        <option value="">All cities</option>
+        <option value="Đà Nẵng">Đà Nẵng</option>
+        <option value="Hà Nội">Hà Nội</option>
+        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+      </select>
+      <select id="lead-mode" onchange="renderLeads()">
+        <option value="">All work modes</option>
+        <option value="Onsite">Onsite</option>
+        <option value="Hybrid">Hybrid</option>
+        <option value="Remote">Remote</option>
+        <option value="Not stated">Not stated</option>
+      </select>
+      <select id="lead-sort" onchange="renderLeads()">
+        <option value="newest">Sort: Newest first</option>
+        <option value="salary-desc">Sort: Highest salary first</option>
+        <option value="city">Sort: City A–Z</option>
+      </select>
+    </div>
+    <div id="leads-list"></div>
+    <p class="lead-sync" id="lead-sync-text"></p>
+  </div>
+  <p class="lede" style="margin-top:12px; font-size:12.5px;">Know a Facebook group worth checking for Đà Nẵng IT/PM roles? <a href="mailto:tab9876543210@gmail.com?subject=Group%20suggestion%20for%20Job%20Leads" style="color:var(--teal);">Suggest it →</a></p>
 </section>
 
 <section id="salary">
@@ -363,6 +418,113 @@ function copyCalcLink(){
   }
 }
 
+const jobLeads = [
+  {id:'kyanon-pm', role:'Project Manager', company:'Kyanon Digital', type:'direct', city:'Đà Nẵng', mode:'Not stated', exp:'3+ years', lang:'Strong English', cert:'PMP/Agile — nice to have', salary:null, posted:'2026-09-09', url:'https://www.facebook.com/groups/vieclamitdanang/posts/3955725351389824'},
+  {id:'vti-pm', role:'Project Manager', company:'VTI', type:'direct', city:'Đà Nẵng', mode:'Not stated', exp:'Not stated in scan', lang:'Japanese N3+', cert:null, salary:null, posted:'2026-09-16', url:'https://www.facebook.com/groups/vieclamcnttdanangnew/posts/38255679134077440'},
+  {id:'dtalent-pm', role:'Senior Project Manager', company:'via DTalent (agency, client undisclosed)', type:'agency', city:'Đà Nẵng', mode:'Onsite', exp:'5+ years (2+ as Senior PM)', lang:'English TOEIC 750+ · Japanese N1/N2', cert:null, salary:'Up to 70M VND gross', posted:'2026-09-25', url:'https://www.facebook.com/groups/vieclamcnttdanangnew/posts/38490754793903205'},
+  {id:'freec-sm', role:'Senior Manager / Senior Delivery Manager', company:'via FreeC (agency, client undisclosed)', type:'agency', city:'Hà Nội', mode:'Hybrid', exp:'10 years (5 as Senior/Division Manager)', lang:'Japanese N2+', cert:null, salary:'NEGO', posted:'2026-09-03', url:'https://www.facebook.com/groups/vieclamitdanang/posts/3950067295288963'},
+  {id:'thuylinh-pmo', role:'PMO – Project Manager', company:'Recruiter: Thuy Linh (client undisclosed)', type:'recruiter', city:'Hồ Chí Minh', mode:'Hybrid', exp:'5+ years', lang:'Fluent English', cert:null, salary:'Up to 60M VND gross', posted:'2026-08-05', url:'https://www.facebook.com/groups/301934151540945/posts/1354947266239623'},
+  {id:'jessjess-pm', role:'IT Project Manager', company:'Recruiter: Jess Jess (client undisclosed)', type:'recruiter', city:'Hồ Chí Minh', mode:'Not stated', exp:'8+ years (min.)', lang:'Fluent English', cert:'PMP required', salary:null, posted:'2026-08-11', url:'https://www.facebook.com/groups/398711525120468/posts/1592087812449494'}
+];
+
+function leadAgeDays(dateStr){
+  const posted = new Date(dateStr + 'T00:00:00Z');
+  const now = new Date();
+  return Math.max(0, Math.floor((now - posted) / 86400000));
+}
+function leadAgeLabel(days){
+  if(days===0) return 'Posted today';
+  if(days===1) return 'Posted 1 day ago';
+  return 'Posted ' + days + ' days ago';
+}
+function leadTypeLabel(type){
+  return type==='direct' ? 'Direct employer' : type==='agency' ? 'Agency' : 'Individual recruiter';
+}
+function leadSalaryValue(j){
+  if(!j.salary) return -1;
+  const m = j.salary.match(/(\d+)\s*M/i);
+  return m ? parseInt(m[1]) : -1;
+}
+function sortedLeads(){
+  const city = document.getElementById('lead-city').value;
+  const mode = document.getElementById('lead-mode').value;
+  const q = document.getElementById('lead-search').value.toLowerCase();
+  const sort = document.getElementById('lead-sort').value;
+  let list = jobLeads.filter(j=>{
+    if(city && j.city!==city) return false;
+    if(mode && j.mode!==mode) return false;
+    if(q && !(j.role.toLowerCase().includes(q) || j.company.toLowerCase().includes(q))) return false;
+    return true;
+  });
+  if(sort==='newest'){
+    list.sort((a,b)=> new Date(b.posted) - new Date(a.posted));
+  } else if(sort==='salary-desc'){
+    list.sort((a,b)=> leadSalaryValue(b) - leadSalaryValue(a));
+  } else if(sort==='city'){
+    list.sort((a,b)=> a.city.localeCompare(b.city));
+  }
+  return list;
+}
+function renderLeads(){
+  const wrap = document.getElementById('leads-list');
+  if(!wrap) return;
+  const list = sortedLeads();
+  wrap.innerHTML = '';
+  if(list.length===0){
+    wrap.innerHTML = '<div class="lead-empty">No postings match these filters.</div>';
+  }
+  list.forEach(j=>{
+    const days = leadAgeDays(j.posted);
+    const ageClass = days>30 ? 'very-stale' : days>14 ? 'stale' : '';
+    const el = document.createElement('div');
+    el.className = 'lead-card';
+    el.id = 'lead-' + j.id;
+    el.innerHTML = `
+      <div class="lead-top">
+        <div>
+          <div class="lead-role">${j.role}</div>
+          <div class="lead-company">${j.company}</div>
+        </div>
+        <div class="lead-age ${ageClass}"><span class="dot"></span>${leadAgeLabel(days)}</div>
+      </div>
+      <div class="lead-badges">
+        <span class="lead-tag ${j.type}">${leadTypeLabel(j.type)}</span>
+        <span class="lead-tag">${j.city} · ${j.mode}</span>
+        ${j.cert ? `<span class="lead-tag">${j.cert}</span>` : ''}
+      </div>
+      <div class="lead-meta">
+        <span><b>Experience</b>${j.exp}</span>
+        <span><b>Language</b>${j.lang}</span>
+        <span><b>Salary</b>${j.salary || 'Not listed'}</span>
+      </div>
+      <div class="lead-actions">
+        <a class="lead-btn" href="${j.url}" target="_blank" rel="noopener">View original post ↗</a>
+        <button class="lead-btn" onclick="copyLeadLink('${j.id}', this)">🔗 Copy link</button>
+      </div>`;
+    wrap.appendChild(el);
+  });
+  const syncEl = document.getElementById('lead-sync-text');
+  if(syncEl) syncEl.textContent = 'Last synced: Sep 25, 2026 · ' + jobLeads.length + ' postings · Project Manager roles only';
+}
+function copyLeadLink(id, btn){
+  const url = window.location.origin + window.location.pathname + '#lead-' + id;
+  const done = ()=>{ const old = btn.textContent; btn.textContent = '✓ Copied'; setTimeout(()=>{ btn.textContent = old; }, 1800); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(done).catch(()=>{ prompt('Copy this link:', url); });
+  } else {
+    prompt('Copy this link:', url);
+  }
+}
+function scrollToLeadFromURL(){
+  const h = window.location.hash;
+  if(h && h.startsWith('#lead-')){
+    setTimeout(()=>{
+      const el = document.querySelector(h);
+      if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('pulse'); }
+    }, 300);
+  }
+}
+
 function toggleTheme(){
   const html = document.documentElement;
   const cur = html.getAttribute('data-theme');
@@ -391,6 +553,8 @@ function updateFreshness(){
 renderBars();
 initCalc();
 updateFreshness();
+renderLeads();
+scrollToLeadFromURL();
 </script>
 </body>
 </html>
