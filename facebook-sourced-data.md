@@ -173,3 +173,15 @@ Groups checked this round (search-based method, "Most recent" sort, query terms:
 - Other postings seen but below target seniority or off-criteria (not detailed further): TechSoft PM (Middle, jobITDaNang, no years/salary given); AvePoint multi-role hiring from 6 months experience (jobITDaNang, 1714939998549259); Pyramid Technical QC_Manager 45–55tr (1714939998549259, not a PM role); Nguyễn Thùy Dung "Development Team Manager (Japanese)" Đà Nẵng $2000–3000 gross, 70% dev/30% mgmt (1714939998549259); Nguyễn Hồng Nhung / Rainscales "Project Manager (IoT)" Remote, 3–4 years, fluent English (398711525120468); Victoria Nguyễn "PMO kiêm Trợ lý Chủ tịch" up to 60M HCM — hybrid PMO + executive-assistant role, not a pure PM post (398711525120468); several PM listings in congdongprojectmanagervietnam under 5 years experience (Diễm Quỳnh, Hiền Thanh/VMO, Mebisoft, HaiAnh Nguyen, Ngọc Hồng/Globaldev, Thanh Bình/BNK, Minh Minh/SETA).
 
 **Takeaway:** across all 9 Facebook groups checked this session, no employer post in the last 2 weeks combines all four target criteria at once (10 years, English, PMP, PSM-II). The closest single match — Jess Jess's HCM posting — hits 3 of 4 (8+ years, English, PMP) but is dated outside the window, is HCM-based rather than Đà Nẵng, and doesn't mention PSM-II. The Anh Sơn posting matches on raw years (10) but needs Japanese, not English. Splitting the criteria and relaxing the location (HCM/Hà Nội, not just Đà Nẵng) and the strict 2-week window surfaces meaningfully more matches than staying narrow.
+
+---
+
+### Direct post links — captured 2026-09-25
+Permalinks grabbed for the strongest personal-job-search matches, so they can be revisited directly instead of re-searching. One bonus find surfaced while grabbing these (VTI's Sept 16 posting, inside the 2-week window — not in the Round 3 write-up above).
+
+- Jess Jess — IT Project Manager, Bình Thạnh HCM (8+ yrs, PMP required, fluent English) — https://www.facebook.com/groups/398711525120468/posts/1592087812449494
+- Anh Sơn / FreeC — Senior Manager/Senior Delivery Manager, Hybrid-HN (10 yrs, Japanese N2+) — https://www.facebook.com/groups/vieclamitdanang/posts/3950067295288963
+- Quynh Linh / Kyanon Digital — Project Manager, Đà Nẵng (3+ yrs, English, PMP nice-to-have) — https://www.facebook.com/groups/vieclamitdanang/posts/3955725351389824
+- Thuy Linh — PMO-Project Manager, Thủ Đức HCM (5+ yrs, fluent English, up to 60M) — https://www.facebook.com/groups/301934151540945/posts/1354947266239623
+- Hồng Ngọc / DTalent — Senior Project Manager, Đà Nẵng, up to 70M gross (5+ yrs) — https://www.facebook.com/groups/vieclamcnttdanangnew/posts/38490754793903205
+- **New find** — VTI Đà Nẵng — Project Manager, N3+ Japanese (posted Sept 16, inside 2-week window; Japanese-language requirement, not English-only) — https://www.facebook.com/groups/vieclamcnttdanangnew/posts/38255679134077440
