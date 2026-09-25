@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Đà Nẵng IT Hub — Detail</title>
+<style>
+:root{
+  --bg:#0B1220; --panel:#121C2E; --panel2:#0E1626; --line:#233049; --ink:#EAF0FA; --sub:#8CA0C2;
+  --teal:#2FD4C4; --amber:#F2A65A; --violet:#8E8FFA;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){--bg:#F5F3EE; --panel:#FFFFFF; --panel2:#FBFAF7; --line:#E1DCD0; --ink:#151A23; --sub:#5B6473;}
+}
+*{box-sizing:border-box;}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased;}
+.num{font-family:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;}
+.back{display:inline-block; margin:16px 20px 0; color:var(--sub); text-decoration:none; font-size:13px;}
+.back:hover{color:var(--teal);}
+header{padding:16px 20px 16px; max-width:920px; margin:0 auto;}
+.eyebrow{color:var(--teal); font-size:13px; margin:0 0 10px;}
+h1{font-size:clamp(26px,6vw,40px); line-height:1.08; margin:0 0 12px; font-weight:700;}
+.lede{color:var(--sub); font-size:15px; line-height:1.6; max-width:60ch; margin:0;}
+main{max-width:920px; margin:0 auto; padding:8px 20px 60px;}
+section{margin-top:34px;}
+h2{font-size:15px; font-weight:600; margin:0 0 14px;}
+h2 .tag{color:var(--sub); font-weight:400; font-size:13px;}
+.stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+@media (max-width:640px){.stat-row{grid-template-columns:1fr 1fr;}}
+.stat{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:18px 16px;}
+.stat .big{font-size:clamp(20px,5vw,28px); font-weight:700; color:var(--teal);}
+.stat .lbl{color:var(--sub); font-size:12.5px; margin-top:6px; line-height:1.4;}
+.card{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px;}
+.park{border-bottom:1px solid var(--line); padding:14px 0;}
+.park:last-child{border-bottom:none;}
+.park .name{font-weight:600; font-size:14px; margin-bottom:4px;}
+.park .meta{color:var(--sub); font-size:12.5px; line-height:1.5;}
+.job{display:flex; justify-content:space-between; gap:10px; border-bottom:1px solid var(--line); padding:10px 0; font-size:13px;}
+.job:last-child{border-bottom:none;}
+.job .title{flex:1;}
+.job .co{color:var(--sub); font-size:12px; flex-shrink:0; text-align:right;}
+.pill-list{display:flex; flex-wrap:wrap; gap:8px;}
+.pill{border:1px solid var(--line); border-radius:999px; padding:6px 13px; font-size:12.5px; color:var(--sub);}
+footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub); font-size:12px; line-height:1.6; border-top:1px solid var(--line); padding-top:20px;}
+</style>
+</head>
+<body>
+
+<a class="back" href="https://claude.ai/artifact/4rUjU5Ncs5ES9iHKWJTQbu">← Back to Vietnam overview</a>
+
+<header>
+  <p class="eyebrow">City drill-down</p>
+  <h1>Đà Nẵng's IT hub, up close</h1>
+  <p class="lede">Small in job count, but the city has spent a decade building physical IT infrastructure — and is now pivoting toward semiconductors and AI, not just outsourcing.</p>
+</header>
+
+<main>
+
+<section>
+  <div class="stat-row">
+    <div class="stat"><div class="big num">4</div><div class="lbl">centralised IT/software park zones built since 2010</div></div>
+    <div class="stat"><div class="big num">20.7%</div><div class="lbl">of city GRDP from IT — targeted to reach 35–40% by 2030</div></div>
+    <div class="stat"><div class="big num">42</div><div class="lbl">open IT roles listed right now (one job board)</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>The physical IT hub <span class="tag">Đà Nẵng's tech real estate</span></h2>
+  <div class="card">
+    <div class="park">
+      <div class="name">Đà Nẵng Software Park (No. 1)</div>
+      <div class="meta">Downtown, Hải Châu district. Vietnam's third centralised IT zone after Hà Nội and HCMC. Historically home to ~75 IT businesses (22 foreign) and ~2,400 employees.</div>
+    </div>
+    <div class="park">
+      <div class="name">Đà Nẵng Software Park No. 2</div>
+      <div class="meta">Opened Jan 2025 on Nguyễn Tất Thành St. Built for ~6,000 IT engineers, explicitly targeting semiconductor, AI and microchip-design work — a shift beyond traditional outsourcing. MoUs signed with Marvell, FPT and Sovico at launch.</div>
+    </div>
+    <div class="park">
+      <div class="name">Đà Nẵng IT Park / Hi-Tech Park</div>
+      <div class="meta">341-hectare zone positioned as central Vietnam's "Silicon Valley." Home to a Tier 3+ green data centre (Trung Nam Group + Infracrowd Capital, ~$100M) and SMT electronics manufacturing.</div>
+    </div>
+    <p class="lede" style="margin-top:10px; font-size:12.5px;">Reading between the lines: the city is deliberately trying to move Đà Nẵng up the value chain — from cheap outsourcing labor toward semiconductors, AI and R&D — which is a multi-year bet, not yet reflected in today's job-count numbers.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Sample of current openings <span class="tag">snapshot, one job board</span></h2>
+  <div class="card">
+    <div class="job"><span class="title">Mid/Senior Project Manager (Agile, Scrum)</span><span class="co">Đà Nẵng / Huế</span></div>
+    <div class="job"><span class="title">Agile Delivery Manager</span><span class="co">Đà Nẵng</span></div>
+    <div class="job"><span class="title">Full-Stack Developer (ReactJS/NodeJS)</span><span class="co">Đà Nẵng</span></div>
+    <div class="job"><span class="title">UI/UX Designer</span><span class="co">Đà Nẵng / HCMC</span></div>
+    <div class="job"><span class="title">AI Engineer (LLM, Agents)</span><span class="co">Đà Nẵng / Hà Nội</span></div>
+    <div class="job"><span class="title">PMO / Software Tester (Japanese N2)</span><span class="co">Đà Nẵng / HCMC / Hà Nội</span></div>
+    <div class="job"><span class="title">Scrum Master</span><span class="co">Đà Nẵng / HCMC</span></div>
+    <div class="job"><span class="title">Senior AI/ML Engineer (onsite Korea rotation)</span><span class="co">Đà Nẵng / HCMC / Hà Nội</span></div>
+    <p class="lede" style="margin-top:10px; font-size:12.5px;">Notice the pattern: a large share of Đà Nẵng postings list it as one of two or three interchangeable locations rather than an Đà Nẵng-only role — a sign the local candidate pool is still shallow enough that employers cast a wider net.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Living there <span class="tag">single-person moderate budget, 2026</span></h2>
+  <div class="card">
+    <div class="pill-list">
+      <span class="pill">Moderate budget: ~$450/mo (vs $650 HCMC, $750 Hà Nội)</span>
+      <span class="pill">1-bed rent, city centre: ~$350/mo</span>
+      <span class="pill">Coworking: ~$80/mo</span>
+      <span class="pill">Safety index: highest of the three major hubs</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Who's actually hiring</h2>
+  <div class="card">
+    <div class="pill-list">
+      <span class="pill">FPT Software — largest, broadest hiring across levels</span>
+      <span class="pill">AvePoint Vietnam — .NET/C# product engineering</span>
+      <span class="pill">Marvell — signed MoU for Software Park 2, semiconductor design</span>
+    </div>
+    <p class="lede" style="margin-top:14px; font-size:12.5px;">Outside these anchor names, most listings come from offshore-development shops serving Japanese, US and European clients — Đà Nẵng is still primarily a delivery/outsourcing base, with the semiconductor pivot in early stages.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Sources: Vietnam News / VNS coverage of Đà Nẵng Software Park and Software Park 2 · VnEconomy · Nhadautu.vn · ITviec Đà Nẵng job listings, Sep 2026 · GetWhereNext cost-of-living data. Frozen at build time — ask to refresh.
+</footer>
+
+</body>
+</html>

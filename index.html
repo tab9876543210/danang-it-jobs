@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vietnam IT Hiring — Đà Nẵng Snapshot</title>
+<style>
+:root{
+  --bg:#0B1220; --panel:#121C2E; --panel2:#0E1626; --line:#233049; --ink:#EAF0FA; --sub:#8CA0C2;
+  --teal:#2FD4C4; --amber:#F2A65A; --violet:#8E8FFA;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root[data-theme="light"]{
+  --bg:#F5F3EE; --panel:#FFFFFF; --panel2:#FBFAF7; --line:#E1DCD0; --ink:#151A23; --sub:#5B6473;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]):not([data-theme="light"]){
+    --bg:#F5F3EE; --panel:#FFFFFF; --panel2:#FBFAF7; --line:#E1DCD0; --ink:#151A23; --sub:#5B6473;
+  }
+}
+html{scroll-padding-top:56px;}
+*{box-sizing:border-box;}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased;}
+.num{font-family:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;}
+nav{position:sticky; top:0; z-index:10; background:var(--bg); border-bottom:1px solid var(--line); padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 10px;}
+.nav-row{max-width:920px; margin:0 auto; display:flex; gap:14px; overflow-x:auto; align-items:center;}
+.nav-row a{color:var(--sub); text-decoration:none; font-size:12.5px; white-space:nowrap; flex-shrink:0;}
+.nav-row a:hover{color:var(--teal);}
+#theme-btn{margin-left:auto; background:var(--panel); border:1px solid var(--line); color:var(--ink); border-radius:7px; padding:5px 10px; font-size:12px; cursor:pointer; flex-shrink:0;}
+header{padding:30px 20px 16px; max-width:920px; margin:0 auto;}
+.eyebrow{color:var(--teal); font-size:13px; margin:0 0 10px;}
+h1{font-size:clamp(26px,6vw,40px); line-height:1.08; margin:0 0 12px; font-weight:700;}
+h1 span{color:var(--sub); font-weight:500;}
+.lede{color:var(--sub); font-size:15px; line-height:1.6; max-width:60ch; margin:0;}
+.tldr{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-top:18px;}
+.tldr div{font-size:13px; color:var(--ink); line-height:1.6; padding:4px 0;}
+.tldr b{color:var(--teal);}
+main{max-width:920px; margin:0 auto; padding:8px 20px 60px;}
+section{margin-top:34px; scroll-margin-top:56px;}
+h2{font-size:15px; font-weight:600; margin:0 0 14px; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
+h2 .tag{color:var(--sub); font-weight:400; font-size:13px;}
+.stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+@media (max-width:640px){.stat-row{grid-template-columns:1fr 1fr;}}
+.stat{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:18px 16px;}
+.stat .big{font-size:clamp(22px,5vw,30px); font-weight:700;}
+.stat .lbl{color:var(--sub); font-size:12.5px; margin-top:6px; line-height:1.4;}
+.stat.teal .big{color:var(--teal);} .stat.amber .big{color:var(--amber);} .stat.violet .big{color:var(--violet);}
+.card{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px;}
+.bar-row{display:flex; align-items:center; gap:10px; padding:6px 0; cursor:pointer;}
+.bar-label{width:128px; flex-shrink:0; font-size:12.5px;}
+.bar-track{flex:1; background:var(--panel2); border-radius:5px; height:15px; overflow:hidden; border:1px solid var(--line); position:relative;}
+.bar-fill{height:100%; border-radius:5px; background:var(--teal); transition:width .2s;}
+.bar-fill.jr{background:var(--violet); opacity:.55;}
+.bar-val{width:52px; flex-shrink:0; text-align:right; font-size:12px; color:var(--sub);}
+.bar-row.dim{opacity:.25;}
+.bar-row.sel .bar-label{color:var(--teal); font-weight:600;}
+.split{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+@media (max-width:640px){.split{grid-template-columns:1fr;}}
+.pill-list{display:flex; flex-wrap:wrap; gap:8px;}
+.pill{border:1px solid var(--line); border-radius:999px; padding:6px 13px; font-size:12.5px; color:var(--sub);}
+input,select{background:var(--panel2); border:1px solid var(--line); color:var(--ink); border-radius:7px; padding:9px 12px; font-size:13px; font-family:inherit; width:100%;}
+.calc-row{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;}
+@media (max-width:480px){.calc-row{grid-template-columns:1fr;}}
+.calc-result{background:var(--panel2); border:1px solid var(--line); border-radius:8px; padding:16px; text-align:center;}
+.calc-result .v{font-size:28px; font-weight:700; color:var(--teal);}
+.calc-result .l{color:var(--sub); font-size:12px; margin-top:4px;}
+.legend{display:flex; gap:16px; font-size:12px; color:var(--sub); margin-top:10px;}
+.legend span{display:inline-flex; align-items:center; gap:6px;}
+.dot{width:9px; height:9px; border-radius:3px; display:inline-block;}
+footer{max-width:920px; margin:0 auto; padding:10px 20px 50px; color:var(--sub); font-size:12px; line-height:1.6; border-top:1px solid var(--line); padding-top:20px;}
+@media print{ nav,#theme-btn,#calc-controls{display:none;} }
+</style>
+</head>
+<body>
+
+<nav><div class="nav-row">
+  <a href="#overview">Overview</a><a href="#cities">Cities</a><a href="#salary">Salary</a>
+  <a href="#col">Cost of living</a><a href="#skills">Skills</a><a href="#companies">Companies</a><a href="#pm">PM advice</a>
+  <button id="theme-btn" onclick="toggleTheme()">🌓 Theme</button>
+</div></nav>
+
+<header id="overview">
+  <p class="eyebrow">IT hiring snapshot — Vietnam &amp; Đà Nẵng</p>
+  <h1>The market is hiring again,<br><span>carefully.</span></h1>
+  <p class="lede">Built from Vietnam's 2025–2026 IT recruitment reports, live job listings, and cost-of-living data — frozen at build time, not live.</p>
+  <div class="tldr">
+    <div>🔹 <b>Hiring is up:</b> 66.1% of companies grew IT headcount in 2025, 69.6% plan to keep growing in 2026.</div>
+    <div>🔹 <b>Đà Nẵng is thin but real:</b> ~42 open roles vs. HCMC's 1,040 — concentrated in a few outsourcing employers, Japan-facing.</div>
+    <div>🔹 <b>Pay ≠ purchasing power:</b> Đà Nẵng salaries trail HCMC, but living costs are ~31% lower — the gap narrows fast.</div>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="stat-row">
+    <div class="stat teal"><div class="big num">66.1%</div><div class="lbl">companies grew IT headcount in 2025</div></div>
+    <div class="stat amber"><div class="big num">69.6%</div><div class="lbl">plan to keep expanding through 2026</div></div>
+    <div class="stat violet"><div class="big num">42</div><div class="lbl">open IT roles listed in Đà Nẵng right now</div></div>
+  </div>
+</section>
+
+<section id="cities">
+  <h2>Open IT roles by city <span class="tag">live listings, one job board, Sep 2026</span></h2>
+  <div class="card">
+    <div class="bar-row"><div class="bar-label">Hồ Chí Minh</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val num">1,040</div></div>
+    <div class="bar-row"><div class="bar-label">Hà Nội</div><div class="bar-track"><div class="bar-fill" style="width:43%"></div></div><div class="bar-val num">443</div></div>
+    <a href="https://claude.ai/artifact/UxHiGDkQ5mNu2x2eeV8uBV" style="text-decoration:none; color:inherit;">
+    <div class="bar-row"><div class="bar-label">Đà Nẵng ↗</div><div class="bar-track"><div class="bar-fill" style="width:4%"></div></div><div class="bar-val num">42</div></div>
+    </a>
+    <p class="lede" style="margin-top:10px; font-size:12.5px;">HCMC alone carries several times the open IT hiring of Hà Nội and Đà Nẵng combined. Đà Nẵng roles route mostly through a handful of outsourcing employers (FPT Software, AvePoint) rather than a broad employer base. <a href="https://claude.ai/artifact/UxHiGDkQ5mNu2x2eeV8uBV" style="color:var(--teal);">Open Đà Nẵng detail page →</a></p>
+  </div>
+</section>
+
+<section id="salary">
+  <h2>Salary by role <span class="tag">median VND/mo · click a role to focus it</span></h2>
+  <div class="card">
+    <input id="filter" placeholder="Filter roles… e.g. developer, lead, analyst" oninput="renderBars()" style="margin-bottom:14px;">
+    <div id="bars"></div>
+    <div class="legend"><span><i class="dot" style="background:var(--teal)"></i>Senior (8+ yrs, or highest available)</span><span><i class="dot" style="background:var(--violet); opacity:.55"></i>Entry level</span></div>
+  </div>
+
+  <div class="card" style="margin-top:12px;">
+    <h2 style="margin-bottom:12px;">Quick salary calculator</h2>
+    <div id="calc-controls" class="calc-row">
+      <select id="calc-role" onchange="calc()"></select>
+      <select id="calc-exp" onchange="calc()">
+        <option value="0">&lt;1 year</option><option value="1">1–2 years</option><option value="2">3–4 years</option>
+        <option value="3">5–8 years</option><option value="4" selected>&gt;8 years</option>
+      </select>
+    </div>
+    <div class="calc-result"><div class="v num" id="calc-out">—</div><div class="l">estimated median monthly salary, million VND</div></div>
+  </div>
+</section>
+
+<section id="col">
+  <h2>Cost of living vs. pay <span class="tag">single-person moderate budget, monthly, 2026</span></h2>
+  <div class="card">
+    <div class="bar-row"><div class="bar-label">Hà Nội</div><div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--amber)"></div></div><div class="bar-val num">$750</div></div>
+    <div class="bar-row"><div class="bar-label">Hồ Chí Minh</div><div class="bar-track"><div class="bar-fill" style="width:87%; background:var(--amber)"></div></div><div class="bar-val num">$650</div></div>
+    <div class="bar-row"><div class="bar-label">Đà Nẵng</div><div class="bar-track"><div class="bar-fill" style="width:60%; background:var(--amber)"></div></div><div class="bar-val num">$450</div></div>
+    <p class="lede" style="margin-top:10px; font-size:12.5px;">Đà Nẵng runs roughly 31% cheaper than HCMC and 40% cheaper than Hà Nội — a central 1-bed rents near $350/mo vs $500/mo in the other two. A Đà Nẵng dev earning less on paper can still keep more of it: fewer open roles, but real purchasing power isn't far behind the bigger hubs.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills showing up most in postings</h2>
+  <div class="card">
+    <div class="pill-list">
+      <span class="pill">Java</span><span class="pill">.NET / C#</span><span class="pill">ReactJS / JavaScript</span>
+      <span class="pill">Python</span><span class="pill">NodeJS</span><span class="pill">Mobile (iOS / Android)</span>
+      <span class="pill">SQL / MySQL</span><span class="pill">QA / Automation Testing</span><span class="pill">Golang</span>
+      <span class="pill">AWS / Cloud, DevOps</span><span class="pill">Japanese (N2–N1, BrSE)</span>
+    </div>
+    <p class="lede" style="margin-top:14px; font-size:12.5px;">Qualitative ranking from current national and Đà Nẵng job listings, not a precise frequency count. Japanese-language skill stands out specifically in Đà Nẵng, reflecting its Japan-facing outsourcing base.</p>
+  </div>
+</section>
+
+<section id="companies">
+  <h2>Who's hiring in Đà Nẵng</h2>
+  <div class="card">
+    <div class="pill-list">
+      <span class="pill">FPT Software — Vietnam's largest software outsourcing provider, broad hiring across levels</span>
+      <span class="pill">AvePoint Vietnam — .NET/C# product engineering</span>
+    </div>
+    <p class="lede" style="margin-top:14px; font-size:12.5px;">Beyond these two frequently-listed names, most Đà Nẵng postings come from offshore-development houses serving Japanese, US and European clients rather than local product companies — worth knowing if you're optimizing for product vs. outsourcing work.</p>
+  </div>
+</section>
+
+<section id="pm">
+  <h2>What Project Managers should be building toward</h2>
+  <div class="card">
+    <p class="lede" style="font-size:13.5px;">Vietnam's 2026 hiring data and global PM trend reports point the same direction: the pay ceiling is shifting from "runs Agile ceremonies well" toward roles that blend delivery with technical and business judgment.</p>
+    <div class="pill-list" style="margin-top:14px;">
+      <span class="pill">AI-assisted planning (Jira/Asana AI, forecasting)</span>
+      <span class="pill">Data-driven reporting over gut-feel status updates</span>
+      <span class="pill">Hybrid Agile / Waterfall fluency</span>
+      <span class="pill">Stakeholder &amp; cross-team leadership</span>
+      <span class="pill">Business-outcome framing, not just on-time/on-budget</span>
+      <span class="pill">Japanese (N2+) for Đà Nẵng's BrSE-heavy market</span>
+    </div>
+    <p class="lede" style="margin-top:14px; font-size:13px;">Tech Lead and IT Manager already out-earn a pure Project Leader/PM track in the salary chart above, and Product Owner tops both — the market prices technical-plus-strategic hybrids higher than process management alone.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Data snapshot built Sep 2026 from: ITviec "IT Salary &amp; Recruitment Market Report 2025–2026" and live ITviec city job listings · TopCV "Hiring Trends 2026" · Vietnam Briefing labor market coverage · GetWhereNext cost-of-living data (World Bank / GSO Vietnam) · assorted 2026 PM trend commentary. Figures are frozen at build time, not live — ask to refresh them anytime.
+</footer>
+
+<script>
+const roles = [
+  ["CTO/CIO/VPoE",101.25,null,null,100.3,null],
+  ["Product Owner/PM",50.1,null,25.3,42.7,75],
+  ["Tech Lead",51.8,null,45.3,53.85,68.45],
+  ["IT Manager",50.25,null,46.4,null,50.3],
+  ["Project Leader/PM",50.1,17.2,29.85,48.4,58.45],
+  ["Data Engineer",41.3,null,null,56.9,null],
+  ["Data Analyst/BI",40.65,null,23.8,null,42.5],
+  ["Embedded Engineer",34.35,21.4,23.9,28.4,60.65],
+  ["Back-end Developer",37.8,12.4,25.35,30.1,54.9],
+  ["Full-stack Developer",37.25,10.1,20.35,34.5,44.8],
+  ["Mobile Developer",36.85,14.15,28.8,29.05,45.7],
+  ["Front-end Developer",34.8,null,null,30.8,46.3],
+  ["Game Developer",33.35,null,26.5,40.4,null],
+  ["QA - QC",31.2,null,18,24.4,38.5],
+  ["Business Analyst",30,12.2,14,28,41.35],
+  ["ERP Engineer/Consultant",30.2,15.2,16.1,19.5,null],
+  ["Tester",28.8,14.15,14.2,20.7,36.5],
+  ["IT Support/Helpdesk",20,null,8.6,18.7,22.5]
+];
+// [name, total, <1y, 1-2y, 3-4y, >8y] — 5-8y omitted from source table for brevity
+const maxVal = Math.max(...roles.map(r=>r[5]||r[4]||r[1]));
+let selected = null;
+
+function renderBars(){
+  const q = document.getElementById('filter').value.toLowerCase();
+  const wrap = document.getElementById('bars');
+  wrap.innerHTML = '';
+  roles.forEach(r=>{
+    const [name,total,e0,e1,e2,e5] = r;
+    const senior = e5 || e2 || total;
+    const jr = e0 || e1 || null;
+    const match = name.toLowerCase().includes(q);
+    const row = document.createElement('div');
+    row.className = 'bar-row' + (q && !match ? ' dim' : '') + (selected===name ? ' sel' : '');
+    row.onclick = ()=>{ selected = (selected===name?null:name); renderBars(); };
+    row.innerHTML = `<div class="bar-label">${name}</div>
+      <div class="bar-track">${jr?`<div class="bar-fill jr" style="width:${jr/maxVal*100}%; position:absolute;"></div>`:''}<div class="bar-fill" style="width:${senior/maxVal*100}%"></div></div>
+      <div class="bar-val num">${senior}</div>`;
+    wrap.appendChild(row);
+  });
+}
+
+function initCalc(){
+  const sel = document.getElementById('calc-role');
+  roles.forEach(r=>{ const o=document.createElement('option'); o.value=r[0]; o.textContent=r[0]; sel.appendChild(o); });
+  calc();
+}
+function calc(){
+  const name = document.getElementById('calc-role').value;
+  const idx = 1 + parseInt(document.getElementById('calc-exp').value);
+  const r = roles.find(x=>x[0]===name);
+  const v = r ? (r[idx] ?? r[1]) : null;
+  document.getElementById('calc-out').textContent = v ? v + ' M' : 'no data';
+}
+function toggleTheme(){
+  const html = document.documentElement;
+  const cur = html.getAttribute('data-theme');
+  const next = cur==='light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  try{ localStorage.setItem('theme', next); }catch(e){}
+}
+try{
+  const saved = localStorage.getItem('theme');
+  if(saved) document.documentElement.setAttribute('data-theme', saved);
+}catch(e){}
+
+renderBars();
+initCalc();
+</script>
+</body>
+</html>
