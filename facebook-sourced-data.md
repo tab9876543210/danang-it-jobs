@@ -83,3 +83,36 @@ Scan notes: sorted by "New posts", read top of feed. This group is very high-vol
   - Notes: No salary listed
 
 Skipped as not IT/dev-relevant: a customer-service/call-center hiring post (7–10M VND, unrelated to CNTT), an agency self-promo post, and an unpaid internship post — kept out of the log since they don't inform IT salary/hiring data.
+
+---
+
+### Round 2 — 2026-09-25 — Việc làm CNTT Đà Nẵng - New
+Group: https://www.facebook.com/groups/vieclamcnttdanangnew
+Ask this round: find Project Manager postings matching ~10 years experience, English communication, PMP/PSM-II certification.
+
+**Methodology change — much better performance:** instead of scrolling the main feed chronologically, used the group's built-in search (search icon → query → "Most recent" sort). This goes straight to matching posts instead of wading through unrelated content, and search results show real dates immediately, so filtering to "last 2 weeks" is direct rather than inferred from "X hours ago" labels. Searched: "PMP", "Project Manager", "PSM", "PMP Project Manager".
+
+**Finding: no post in the last 2 weeks asks for exactly 10 years PM experience + PMP/PSM-II.** This group's PM demand tops out around "5+ years / Senior PM" — a 10-year bar doesn't appear to be how roles get posted here, at least not in this window. Closest matches:
+
+- Role: Senior Project Manager — **closest match this round**
+  - Detail: DTalent (recruiting agency) for a client; up to 70M VND gross. Requires 5+ years PM (software dev) or PM+BrSE, 2+ years specifically as Senior PM on large-scale/multi-project portfolios, offshore Japan-market projects, presales (scoping/proposals/estimation), Japanese N1/N2 business level, **English business level (TOEIC 750+)**, Agile/Scrum/Jira/Backlog/Confluence, budget/risk/stakeholder management, PM mentoring
+  - Location: Đà Nẵng, Mon–Fri 8:00–17:30
+  - Date: 2026-09-25 (posted ~3 hours before this scan)
+  - Notes: Highest-seniority, highest-salary PM post found; no PMP/PSM certificate explicitly required, though the profile (budget/risk/stakeholder mgmt) is PMP-adjacent
+
+- Role: Project Manager (Software Development)
+  - Detail: FPT Software Đà Nẵng; explicitly "no foreign language required," 2–3 years experience, ops/AMS-Infra background, JP calendar 7:00–16:00, only 1 slot
+  - Location: Đà Nẵng
+  - Date: 6 days before scan (~2026-09-19)
+  - Notes: Doesn't match criteria (too junior, no English requirement) — logged for contrast
+
+- Role: Project Manager / Scrum Master
+  - Detail: Finance-sector product company (Núi Thành St., Đà Nẵng); offer up to 50M gross, 3+ years PM/Scrum Master experience, developer background, good English communication
+  - Location: Đà Nẵng
+  - Date: August 25, 2026 — **outside the 2-week window**, kept for context only
+
+- Reference only (outside window): VTI Đà Nẵng — "Senior/Middle Project Manager," posted June 9, 2026. 3–5+ years PM in IT Outsourcing, **explicitly prefers PMP, PSM/CSM, PRINCE2 certification**, strong tech base, estimation, Japanese-language proposal writing. This is the only post found (any date) that names PMP/PSM as a preference rather than a generic training perk — useful as a signal of what a matching listing looks like, even though it predates the 2-week window.
+
+- Not an employer post — logged for market context: an individual (posting anonymously) seeking a Scrum Master / Junior PM role, 1.5 years experience, **states they hold a PSM Level II certificate**, and can communicate in English with overseas clients. Shows the certification circulates locally even at the junior end, not just as a senior requirement.
+
+**Takeaway:** a PM opening that literally requires 10 years + PMP/PSM-II doesn't show up in this group's recent activity — Đà Nẵng's outsourcing-heavy market posts "Senior PM" around the 5-year mark instead. Worth deciding whether to (a) keep watching this group for a rarer senior post, (b) check a more senior-skewed group/source, or (c) treat "5+ years, Senior PM, up to 70M, English required" as the realistic local ceiling for the site's data.
